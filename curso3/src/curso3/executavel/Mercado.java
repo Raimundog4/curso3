@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mercado {
-	
+
 	private List<Fruta> frutas = new ArrayList<Fruta>();
 
 	public List<Fruta> getFrutas() {
@@ -13,6 +13,28 @@ public class Mercado {
 
 	public void setFrutas(List<Fruta> frutas) {
 		this.frutas = frutas;
+	}
+
+	public int getEstoqueInicial() {
+		int somaFrutas = 0;
+
+		for (Fruta fruta : frutas) {
+			somaFrutas += fruta.getQuantidade();
+			
+		}
+			
+			return somaFrutas;		
+	}
+	
+	public int getEstoqueFinal() {
+		int subtracao = 0;
+		
+		for (Fruta fruta : frutas) {
+			subtracao = (fruta.getQuantidade() + fruta.getCompras()) - fruta.getVendas();
+		}
+		
+		return subtracao;
+		
 	}
 
 	@Override
@@ -44,7 +66,5 @@ public class Mercado {
 	public String toString() {
 		return "Mercado [frutas=" + frutas + "]";
 	}
-	
-	
 
 }

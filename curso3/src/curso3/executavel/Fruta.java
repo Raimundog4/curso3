@@ -6,6 +6,8 @@ public class Fruta {
 	String cor;
 	String validade;
 	int quantidade;
+	int compras;
+	int vendas;
 
 	public String getNome() {
 		return nome;
@@ -38,15 +40,35 @@ public class Fruta {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+	
+	public int getCompras() {
+		return compras;
+	}
+
+	public void setCompras(int compras) {
+		this.compras = compras;
+	}
+
+	public int getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(int vendas) {
+		this.vendas = vendas;
+	}
+
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + compras;
 		result = prime * result + ((cor == null) ? 0 : cor.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + quantidade;
 		result = prime * result + ((validade == null) ? 0 : validade.hashCode());
+		result = prime * result + vendas;
 		return result;
 	}
 
@@ -59,6 +81,8 @@ public class Fruta {
 		if (getClass() != obj.getClass())
 			return false;
 		Fruta other = (Fruta) obj;
+		if (compras != other.compras)
+			return false;
 		if (cor == null) {
 			if (other.cor != null)
 				return false;
@@ -75,6 +99,8 @@ public class Fruta {
 			if (other.validade != null)
 				return false;
 		} else if (!validade.equals(other.validade))
+			return false;
+		if (vendas != other.vendas)
 			return false;
 		return true;
 	}
