@@ -20,21 +20,21 @@ public class Mercado {
 
 		for (Fruta fruta : frutas) {
 			somaFrutas += fruta.getQuantidade();
-			
+
 		}
-			
-			return somaFrutas;		
+
+		return somaFrutas;
 	}
-	
+
 	public int getEstoqueFinal() {
 		int subtracao = 0;
-		
+
 		for (Fruta fruta : frutas) {
 			subtracao = (fruta.getQuantidade() + fruta.getCompras()) - fruta.getVendas();
 		}
-		
+
 		return subtracao;
-		
+
 	}
 
 	@Override

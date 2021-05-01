@@ -40,7 +40,7 @@ public class Fruta {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	
+
 	public int getCompras() {
 		return compras;
 	}
@@ -56,8 +56,6 @@ public class Fruta {
 	public void setVendas(int vendas) {
 		this.vendas = vendas;
 	}
-
-	
 
 	@Override
 	public int hashCode() {
@@ -109,7 +107,5 @@ public class Fruta {
 	public String toString() {
 		return "Frutas [nome=" + nome + ", cor=" + cor + ", validade=" + validade + ", quantidade=" + quantidade + "]";
 	}
-	
-	
 
 }

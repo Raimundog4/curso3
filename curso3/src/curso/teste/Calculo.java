@@ -19,7 +19,7 @@ public class Calculo {
 			String compras = JOptionPane.showInputDialog("Quantas compras? ");
 			String vendas = JOptionPane.showInputDialog("Quantas vendas? ");
 			int saldo;
-			
+
 			Fruta fruta = new Fruta();
 			fruta.setNome(nomeFruta);
 			fruta.setCor(corFruta);
@@ -31,16 +31,16 @@ public class Calculo {
 
 			mercado.getFrutas().add(fruta);
 
-			System.out.println("O fruta é: "+fruta.getNome());
-			System.out.println("A cor da fruta é: "+fruta.getCor());
-			System.out.println("A validade da fruta é até: "+fruta.getValidade());
-			System.out.println("O estoque inicial é: "+fruta.getQuantidade()+" "+fruta.getNome());
-			System.out.println("Foram compradas: "+fruta.getCompras()+" "+fruta.getNome());
-			System.out.println("Foram vendidas: "+fruta.getVendas()+" "+fruta.getNome());
-			System.out.println("Restaram: "+saldo+" "+fruta.getNome());
+			System.out.println("O fruta é: " + fruta.getNome());
+			System.out.println("A cor da fruta é: " + fruta.getCor());
+			System.out.println("A validade da fruta é até: " + fruta.getValidade());
+			System.out.println("O estoque inicial é: " + fruta.getQuantidade() + " " + fruta.getNome());
+			System.out.println("Foram compradas: " + fruta.getCompras() + " " + fruta.getNome());
+			System.out.println("Foram vendidas: " + fruta.getVendas() + " " + fruta.getNome());
+			System.out.println("Restaram: " + saldo + " " + fruta.getNome());
 			System.out.println("============================================================");
 		}
 		System.out.println("O estoque inicial do mercado é de: " + mercado.getEstoqueInicial());
-		System.out.println("O estoque final do mercado é de: " +mercado.getEstoqueFinal());
+		System.out.println("O estoque final do mercado é de: " + mercado.getEstoqueFinal());
 	}
 }
