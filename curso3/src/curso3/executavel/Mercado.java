@@ -40,13 +40,25 @@ public class Mercado {
 	}
 
 	public void remocaoFruta() {
+		String frutaRemover = JOptionPane.showInputDialog("Qual fruta você deseja remover? ");
 		for (int i = 0; i < frutas.size(); i++) {
 			Fruta f = frutas.get(i);
-			String vegetalRemover = JOptionPane.showInputDialog("Qual vegetal você deseja remover? ");
-			if (vegetalRemover.equalsIgnoreCase(f.getNome())) {
-				
+			if (frutaRemover.equalsIgnoreCase(f.getNome())) {
+
 				getFrutas().remove(f);
-				break;
+
+			}
+		}
+	}
+
+	public void remocaoVegetal() {
+		String vegetalRemover = JOptionPane.showInputDialog("Qual vegetal você deseja remover? ");
+		for (int i = 0; i < vegetais.size(); i++) {
+			Vegetal v = vegetais.get(i);
+			if (vegetalRemover.equalsIgnoreCase(v.getNome())) {
+
+				getVegetais().remove(v);
+
 			}
 		}
 	}

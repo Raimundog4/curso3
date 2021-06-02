@@ -1,5 +1,8 @@
 package curso.teste;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import curso3.executavel.Fruta;
@@ -11,10 +14,10 @@ public class Calculo {
 	public static void main(String[] args) {
 
 		String senha = JOptionPane.showInputDialog("Qual a senha?");
-
+		Mercado mercado = new Mercado();
 		if (senha.equals("teamo")) {
 
-			Mercado mercado = new Mercado();
+			
 			int escolha = JOptionPane.showConfirmDialog(null, "Você comprou fruta?");
 
 			if (escolha == 0) {
@@ -96,29 +99,48 @@ public class Calculo {
 				}
 
 			}
+//			int remocao = JOptionPane.showConfirmDialog(null, "Deseja remover alguma fruta?");
+//			if (remocao == 0) {
+//				int posicao = 1;
+//				String frutaRemover = JOptionPane
+//						.showInputDialog("Qual fruta você deseja remover? " + mercado.getFrutas());
+//				mercado.getFrutas().remove(Integer.valueOf(frutaRemover) - posicao);
+//				posicao++;
+//			}
+//			remocao = JOptionPane.showConfirmDialog(null, "Deseja remover algum vegetal? ");
+//			if (remocao == 0) {
+//				int posicao = 1;
+//				String vegetalRemover = JOptionPane
+//						.showInputDialog("Qual vegetal você deseja remover? " + mercado.getVegetais());
+//				mercado.getVegetais().remove(Integer.valueOf(vegetalRemover) - posicao);
+//				posicao++;
+//			}
 			int remocao = JOptionPane.showConfirmDialog(null, "Deseja remover alguma fruta?");
-			if (remocao == 0) {
-				int posicao = 1;
-				String frutaRemover = JOptionPane
-						.showInputDialog("Qual fruta você deseja remover? " + mercado.getFrutas());
-				mercado.getFrutas().remove(Integer.valueOf(frutaRemover) - posicao);
-				posicao++;
-			}
-			remocao = JOptionPane.showConfirmDialog(null, "Deseja remover algum vegetal? ");
-			if (remocao == 0) {
-				int posicao = 1;
-				String vegetalRemover = JOptionPane
-						.showInputDialog("Qual vegetal você deseja remover? " + mercado.getVegetais());
-				mercado.getVegetais().remove(Integer.valueOf(vegetalRemover) - posicao);
-				posicao++;
-			}
-			remocao = JOptionPane.showConfirmDialog(null, "Deseja remover alguma fruta?");
 			if (remocao == 0) {
 				mercado.remocaoFruta();
 			}
+			remocao = JOptionPane.showConfirmDialog(null, "Deseja remover algum vegetal?");
+			if (remocao == 0) {
+				mercado.remocaoVegetal();
+			}
+			System.out.println(mercado.getFrutas());
+			System.out.println("====================================================");
+			System.out.println(mercado.getVegetais());
+			
+//			int remocao = JOptionPane.showConfirmDialog(null, "Deseja remover alguma fruta?");
+//
+//			if (remocao == 0) {
+//				boolean retorno = mercado.retirarFruta(null);
+//				retorno = mercado.retirarFruta(null);
+//				
+//				String resposta = retorno ? "Fruta removida" : "Fruta não encontrada";
+//				System.out.println(resposta);
+//			}
+			
 
 			System.out.println("O estoque inicial do mercado é de: " + mercado.getEstoqueInicialMercado());
 			System.out.println("O estoque final do mercado é de: " + mercado.getEstoqueFinalMercado());
 		}
+		
 	}
 }
