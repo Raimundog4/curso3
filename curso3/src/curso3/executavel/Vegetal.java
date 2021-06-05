@@ -1,13 +1,10 @@
 package curso3.executavel;
 
-public class Vegetal {
+import superclasse.Mercado;
 
-	String nome;
-	String cor;
-	String validade;
-	int quantidade;
-	int compras;
-	int vendas;
+public class Vegetal extends Mercado{
+
+	
 
 	public String getNome() {
 		return nome;

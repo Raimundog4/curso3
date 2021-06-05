@@ -1,23 +1,22 @@
 package curso.teste;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JOptionPane;
 
 import curso3.executavel.Fruta;
-import curso3.executavel.Mercado;
 import curso3.executavel.Vegetal;
+import funcoes.FuncaoAutenticar;
+import superclasse.Mercado;
 
 public class Calculo {
 
 	public static void main(String[] args) {
-
+//Validação
+		String login = JOptionPane.showInputDialog("Qual o login?");
 		String senha = JOptionPane.showInputDialog("Qual a senha?");
-		Mercado mercado = new Mercado();
-		if (senha.equals("teamo")) {
-
-			
+		
+		if (new FuncaoAutenticar(new Fruta(login, senha)).funcaoAutenticar()) {
+//Instanciamento 
+			Mercado mercado = new Mercado();
 			int escolha = JOptionPane.showConfirmDialog(null, "Você comprou fruta?");
 
 			if (escolha == 0) {
@@ -99,23 +98,25 @@ public class Calculo {
 				}
 
 			}
-//			int remocao = JOptionPane.showConfirmDialog(null, "Deseja remover alguma fruta?");
-//			if (remocao == 0) {
-//				int posicao = 1;
-//				String frutaRemover = JOptionPane
-//						.showInputDialog("Qual fruta você deseja remover? " + mercado.getFrutas());
-//				mercado.getFrutas().remove(Integer.valueOf(frutaRemover) - posicao);
-//				posicao++;
-//			}
-//			remocao = JOptionPane.showConfirmDialog(null, "Deseja remover algum vegetal? ");
-//			if (remocao == 0) {
-//				int posicao = 1;
-//				String vegetalRemover = JOptionPane
-//						.showInputDialog("Qual vegetal você deseja remover? " + mercado.getVegetais());
-//				mercado.getVegetais().remove(Integer.valueOf(vegetalRemover) - posicao);
-//				posicao++;
-//			}
+//Remoção dentro da main
 			int remocao = JOptionPane.showConfirmDialog(null, "Deseja remover alguma fruta?");
+			if (remocao == 0) {
+				int posicao = 1;
+				String frutaRemover = JOptionPane
+						.showInputDialog("Qual fruta você deseja remover? " + mercado.getFrutas());
+				mercado.getFrutas().remove(Integer.valueOf(frutaRemover) - posicao);
+				posicao++;
+			}
+			remocao = JOptionPane.showConfirmDialog(null, "Deseja remover algum vegetal? ");
+			if (remocao == 0) {
+				int posicao = 1;
+				String vegetalRemover = JOptionPane
+						.showInputDialog("Qual vegetal você deseja remover? " + mercado.getVegetais());
+				mercado.getVegetais().remove(Integer.valueOf(vegetalRemover) - posicao);
+				posicao++;
+			}
+			// Remoção chamando o método
+			remocao = JOptionPane.showConfirmDialog(null, "Deseja remover alguma fruta?");
 			if (remocao == 0) {
 				mercado.remocaoFruta();
 			}
@@ -126,21 +127,39 @@ public class Calculo {
 			System.out.println(mercado.getFrutas());
 			System.out.println("====================================================");
 			System.out.println(mercado.getVegetais());
-			
-//			int remocao = JOptionPane.showConfirmDialog(null, "Deseja remover alguma fruta?");
-//
-//			if (remocao == 0) {
-//				boolean retorno = mercado.retirarFruta(null);
-//				retorno = mercado.retirarFruta(null);
-//				
-//				String resposta = retorno ? "Fruta removida" : "Fruta não encontrada";
-//				System.out.println(resposta);
-//			}
-			
+// Impressão percorrendo a lista
+			for (Fruta fruta : mercado.getFrutas()) {
+				System.out.println(fruta.getNome());
+			}
+
+			for (Vegetal vegetal : mercado.getVegetais()) {
+				System.out.println(vegetal.getNome());
+			}
+			// Troca de elemento chamando o método
+			escolha = JOptionPane.showConfirmDialog(null, "Deseja trocar alguma fruta?");
+
+			if (escolha == 0) {
+
+				boolean retorno = mercado.trocarFruta(mercado.getFrutas());
+
+				String opcao = retorno ? "Sucesso" : "Insucesso";
+				JOptionPane.showMessageDialog(null, opcao);
+			}
+			escolha = JOptionPane.showConfirmDialog(null, "Deseja trocar algum vegetal?");
+
+			if (escolha == 0) {
+
+				boolean retorno = mercado.trocarVegetal(mercado.getVegetais());
+
+				String opcao = retorno ? "Sucesso" : "Insucesso";
+				JOptionPane.showMessageDialog(null, opcao);
+			}
 
 			System.out.println("O estoque inicial do mercado é de: " + mercado.getEstoqueInicialMercado());
 			System.out.println("O estoque final do mercado é de: " + mercado.getEstoqueFinalMercado());
+		} else {
+			JOptionPane.showMessageDialog(null, "Você digitou os dados errados!");
 		}
-		
+
 	}
 }

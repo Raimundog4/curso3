@@ -1,13 +1,21 @@
 package curso3.executavel;
 
-public class Fruta {
+import mercado.interfaces.PermitirAcesso;
+import superclasse.Mercado;
 
-	String nome;
-	String cor;
-	String validade;
-	int quantidade;
-	int compras;
-	int vendas;
+public class Fruta extends Mercado implements PermitirAcesso {
+
+	private String login;
+	private String senha;
+
+	public Fruta(String login, String senha) {
+		this.login = login;
+		this.senha = senha;
+	}
+
+	public Fruta() {
+
+	}
 
 	public String getNome() {
 		return nome;
@@ -106,6 +114,19 @@ public class Fruta {
 	@Override
 	public String toString() {
 		return "Frutas [nome=" + nome + ", cor=" + cor + ", validade=" + validade + ", quantidade=" + quantidade + "]";
+	}
+
+	@Override
+	public boolean autenticar(String login, String senha) {
+		this.login = login;
+		this.senha = senha;
+		return autenticar();
+	}
+
+	@Override
+	public boolean autenticar() {
+
+		return login.equals("admin") && senha.equals("admin123");
 	}
 
 }
